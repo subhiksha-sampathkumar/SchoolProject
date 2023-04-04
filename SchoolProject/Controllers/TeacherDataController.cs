@@ -82,7 +82,7 @@ namespace SchoolProject.Controllers
         /// <param name="id">The teacher primary key</param>
         /// <returns>An teacher object</returns>
         [HttpGet]
-        public Teacher FindTeacher(int id)//*doubt*
+        public Teacher FindTeacher(int id)
         {
             Teacher NewTeacher = new Teacher();
 

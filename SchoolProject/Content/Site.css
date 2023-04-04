@@ -16,8 +16,19 @@ textarea {
     max-width: 280px;
 }
 
-.navbar-inverse .navbar-toggle:hover,
-.navbar-inverse .navbar-toggle:focus {
-    background-color: #777;
-    border-color: #fff
+
+.navlink {
+    text-align: right;
+    margin-top: 30px;
+    float: right;
+}
+
+#containerlist, #containershow {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+.listitem {
+    margin: 10px 0;
 }

@@ -8,6 +8,8 @@ namespace SchoolProject.Models
 {
     public class Teacher
     {
+
+        //the following fields define a teacher
         public int TeacherId;
          public double Salary;
           public string Employeenumber;
