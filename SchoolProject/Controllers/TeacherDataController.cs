@@ -10,6 +10,7 @@ using System.Diagnostics;
 
 
 
+
 namespace SchoolProject.Controllers
 {
     public class TeacherDataController : ApiController
@@ -64,10 +65,10 @@ namespace SchoolProject.Controllers
                 Teacher NewTeacher = new Teacher();
                 NewTeacher.TeacherId = TeacherId;
                 NewTeacher.Hiredate = Hiredate;
-                NewTeacher.Salary = Salary;
+                NewTeacher.salary = Salary;
                 NewTeacher.TeacherFname = TeacherFname;
                 NewTeacher.TeacherLname = TeacherLname;
-                NewTeacher.Employeenumber = Employeenumber;
+                NewTeacher.employeenumber = Employeenumber;
                 //Add the Author Name to the List
                 Teachers.Add(NewTeacher);
             }
@@ -117,15 +118,15 @@ namespace SchoolProject.Controllers
                 string TeacherFname = ResultSet["teacherfname"].ToString();
                 string TeacherLname = ResultSet["teacherlname"].ToString();
                 string Employeenumber = ResultSet["employeenumber"].ToString();
-                DateTime TeacherJoinDate = (DateTime)ResultSet["teacherjoindate"];
+               // DateTime TeacherJoinDate = (DateTime)ResultSet["teacherjoindate"];//
 
                 NewTeacher.TeacherId = TeacherId;
                 NewTeacher.Hiredate = Hiredate;
-                NewTeacher.Salary = Salary;
+                NewTeacher.salary = Salary;
                 NewTeacher.TeacherFname = TeacherFname;
                 NewTeacher.TeacherLname = TeacherLname;
-                NewTeacher.Employeenumber = Employeenumber;
-                NewTeacher.TeacherJoinDate = TeacherJoinDate;
+                NewTeacher.employeenumber = Employeenumber;
+               
             }
             Conn.Close();
 
@@ -177,8 +178,8 @@ namespace SchoolProject.Controllers
         /// }
         /// </example>
         [HttpPost]
-        [EnableCors(origins: "*", methods: "*", headers: "*")]
-        public void AddAuthor([FromBody] Teacher NewTeacher)
+  
+        public void AddTeacher([FromBody] Teacher NewTeacher)
         {
             //Create an instance of a connection
             MySqlConnection Conn = School.AccessDatabase();
@@ -192,7 +193,7 @@ namespace SchoolProject.Controllers
             MySqlCommand cmd = Conn.CreateCommand();
 
             //SQL QUERY
-            cmd.CommandText = "insert into teachers (teacherfname, teacherlname, teacherbio, teacherjoindate, teacheremail) values (@TeacherFname,@TeacherLname,@TeacherBio, CURRENT_DATE(), @TeacherEmail)";
+            cmd.CommandText = "insert into teachers (teacherfname, teacherlname, salary, employeenumber) values (@TeacherFname,@TeacherLname,@salary, CURRENT_DATE(), @employeenumber)";
             cmd.Parameters.AddWithValue("@TeacherFname", NewTeacher.TeacherFname);
             cmd.Parameters.AddWithValue("@TeacherLname", NewTeacher.TeacherLname);
             cmd.Parameters.AddWithValue("@salary", NewTeacher.salary);

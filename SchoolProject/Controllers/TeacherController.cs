@@ -70,7 +70,7 @@ namespace SchoolProject.Controllers
 
         //POST : /Author/Create
         [HttpPost]
-        public ActionResult Create(string TeacherFname, string TeacherLname, string salary, string employeenumber)
+        public ActionResult Create(string TeacherFname, string TeacherLname, double salary, string employeenumber)
         {
             //Identify that this method is running
             //Identify the inputs provided from the form
@@ -79,6 +79,7 @@ namespace SchoolProject.Controllers
             Debug.WriteLine(TeacherFname);
             Debug.WriteLine(TeacherLname);
             Debug.WriteLine(salary);
+            Debug.WriteLine(employeenumber);
 
             Teacher NewTeacher = new Teacher();
             NewTeacher.TeacherFname = TeacherFname;

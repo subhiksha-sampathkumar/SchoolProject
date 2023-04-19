@@ -11,8 +11,8 @@ namespace SchoolProject.Models
 
         //the following fields define a teacher
         public int TeacherId;
-         public double Salary;
-          public string Employeenumber;
+         public double salary;
+          public string employeenumber;
             public string Hiredate;
             public string TeacherFname; 
             public string TeacherLname;
