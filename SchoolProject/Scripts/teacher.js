@@ -17,16 +17,16 @@ function AddTeacher() {
 
 	var TeacherFname = document.getElementById('TeacherFname').value;
 	var TeacherLname = document.getElementById('TeacherLname').value;
-	var TeacherEmail = document.getElementById('TeacherEmail').value;
-	var TeacherBio = document.getElementById('TeacherBio').value;
+	var salary = document.getElementById('salary').value;
+	var employeenumber = document.getElementById('employeenumber').value;
 
 
 
 	var TeacherData = {
 		"TeacherFname": TeacherFname,
 		"TeacherLname": TeacherLname,
-		"TeacherEmail": TeacherEmail,
-		"TeacherBio": TeacherBio
+		"salary": salary,
+		"employeenumber": employeenumber
 	};
 
 

@@ -1,4 +1,5 @@
-﻿using SchoolProject.Models;
+﻿using Mysqlx.Datatypes;
+using SchoolProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -69,7 +70,7 @@ namespace SchoolProject.Controllers
 
         //POST : /Author/Create
         [HttpPost]
-        public ActionResult Create(string TeacherFname, string TeacherLname, string TeacherBio, string TeacherEmail)
+        public ActionResult Create(string TeacherFname, string TeacherLname, string salary, string employeenumber)
         {
             //Identify that this method is running
             //Identify the inputs provided from the form
@@ -77,13 +78,13 @@ namespace SchoolProject.Controllers
             Debug.WriteLine("I have accessed the Create Method!");
             Debug.WriteLine(TeacherFname);
             Debug.WriteLine(TeacherLname);
-            Debug.WriteLine(TeacherBio);
+            Debug.WriteLine(salary);
 
             Teacher NewTeacher = new Teacher();
             NewTeacher.TeacherFname = TeacherFname;
             NewTeacher.TeacherLname = TeacherLname;
-            NewTeacher.TeacherBio = TeacherBio;
-            NewTeacher.TeacherEmail = TeacherEmail;
+            NewTeacher.salary = salary;
+            NewTeacher.employeenumber = employeenumber;
 
             TeacherDataController controller = new TeacherDataController();
             controller.AddTeacher(NewTeacher);

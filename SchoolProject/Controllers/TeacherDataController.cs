@@ -173,8 +173,8 @@ namespace SchoolProject.Controllers
         /// {
         ///	"TeacherFname":"Christine",
         ///	"TeacherLname":"Bittle",
-        ///	"TeacherBio":"Likes Coding!",
-        ///	"TeacherEmail":"christine@test.ca"
+        ///	"salary":"2million!",
+        ///	"employeenumber":"abc123"
         /// }
         /// </example>
         [HttpPost]
@@ -196,8 +196,8 @@ namespace SchoolProject.Controllers
             cmd.CommandText = "insert into teachers (teacherfname, teacherlname, teacherbio, teacherjoindate, teacheremail) values (@TeacherFname,@TeacherLname,@TeacherBio, CURRENT_DATE(), @TeacherEmail)";
             cmd.Parameters.AddWithValue("@TeacherFname", NewTeacher.TeacherFname);
             cmd.Parameters.AddWithValue("@TeacherLname", NewTeacher.TeacherLname);
-            cmd.Parameters.AddWithValue("@TeacherBio", NewTeacher.TeacherBio);
-            cmd.Parameters.AddWithValue("@TeacherEmail", NewTeacher.TeacherEmail);
+            cmd.Parameters.AddWithValue("@salary", NewTeacher.salary);
+            cmd.Parameters.AddWithValue("@employeenumber", NewTeacher.employeenumber);
             cmd.Prepare();
 
             cmd.ExecuteNonQuery();
