@@ -16,6 +16,9 @@ namespace SchoolProject.Models
             public string Hiredate;
             public string TeacherFname; 
             public string TeacherLname;
+
+        //parameter-less constructor function
+        public Teacher() { }
     }
 }
 
