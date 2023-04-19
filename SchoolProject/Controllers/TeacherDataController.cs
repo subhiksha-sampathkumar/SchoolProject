@@ -7,7 +7,6 @@ using System.Web.Http;
 using SchoolProject.Models;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
-using System.Web.Http.Cors;
 
 
 
