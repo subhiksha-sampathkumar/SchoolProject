@@ -9,11 +9,11 @@
 
 <div id="containershow">
     <nav>
-        <a class="navlink" href="/Author/Show/@Model.AuthorId">Cancel</a>
+        <a class="navlink" href="/Teacher/Show/@Model.TeacherId">Cancel</a>
     </nav>
-    <h2>Are you sure you want to delete @Model.AuthorFname @Model.AuthorLname?</h2>
+    <h2>Are you sure you want to delete @Model.TeacherFname @Model.TeacherLname?</h2>
     <p>This action cannot be undone.</p>
-    <form method="POST" action="/Author/Delete/@Model.AuthorId">
+    <form method="POST" action="/Teacher/Delete/@Model.TeacherId">
         <button class="delbutton">
             Confirm Delete
         </button>

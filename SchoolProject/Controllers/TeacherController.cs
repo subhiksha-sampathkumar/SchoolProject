@@ -17,10 +17,10 @@ namespace SchoolProject.Controllers
         }
         // GET: Teacher/List
 
-        public ActionResult List()
+        public ActionResult List(string SearchKey = null)
         {
             TeacherDataController controller = new TeacherDataController();
-            IEnumerable<Teacher> Teachers = controller.ListTeachers();
+            IEnumerable<Teacher> Teachers = controller.ListTeachers(SearchKey);
             return View(Teachers);
         }
 
@@ -41,7 +41,7 @@ namespace SchoolProject.Controllers
             Teacher NewTeacher = controller.FindTeacher(id);
 
 
-            return View(NewAuthor);
+            return View(NewTeacher);
         }
 
 
