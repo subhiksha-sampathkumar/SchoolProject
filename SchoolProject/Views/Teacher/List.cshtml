@@ -7,12 +7,17 @@
 
 <p>This page should be showing information about all teachers</p>
 
+<nav>
+    <a class="navlink" href="/Teacher/New">New Teacher</a>
+    <a class="navlink" href="/Teacher/Ajax_New">Update Teacher with Ajax</a>
+</nav>
+
 <div id="containerlist">
     <h2>List of Teachers</h2>
     @foreach (var teacher in Model)
     {
         <div class="listitem row">
-            <div class="col-md-12"><a href="/Teacher/Show/@teacher.TeacherId">@teacher.TeacherFname @teacher.TeacherLname @teacher.Employeenumber @teacher.Hiredate @teacher.Salary</a></div>
+            <div class="col-md-12"><a href="/Teacher/Show/@teacher.TeacherId">@teacher.TeacherFname @teacher.TeacherLname @teacher.employeenumber @teacher.Hiredate @teacher.salary</a></div>
         </div>
     }
 </div>

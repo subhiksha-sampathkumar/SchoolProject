@@ -208,6 +208,37 @@ namespace SchoolProject.Controllers
 
         }
 
+        [HttpPost]
+        public void UpdateTeacher(int id, [FromBody] Teacher TeacherInfo)
+        {
+            //Create an instance of a connection
+            MySqlConnection Conn = School.AccessDatabase();
+
+            //Debug.WriteLine(TeacherFname.TeacherLname);
+
+            //Open the connection between the web server and database
+            Conn.Open();
+
+            //Establish a new command (query) for our database
+            MySqlCommand cmd = Conn.CreateCommand();
+
+            //SQL QUERY
+            cmd.CommandText = "update teachers set TeacherFName=@TeacherFname, TeacherLname=@TeacherLname, employeenumber=@employeenumber, salary=@salary  where Teacherid=@Teacherid";
+            cmd.Parameters.AddWithValue("@TeacherFname", TeacherInfo.TeacherFname);
+            cmd.Parameters.AddWithValue("@TeacherLname", TeacherInfo.TeacherLname);
+            cmd.Parameters.AddWithValue("@employeenumber", TeacherInfo.employeenumber);
+            cmd.Parameters.AddWithValue("@salary", TeacherInfo.salary);
+            cmd.Parameters.AddWithValue("@TeacherId", id);
+
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+
+            Conn.Close();
+
+
+        }
+
     }
 }
 

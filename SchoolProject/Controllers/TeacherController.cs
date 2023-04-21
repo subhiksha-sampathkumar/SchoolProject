@@ -25,7 +25,7 @@ namespace SchoolProject.Controllers
             return View(Teachers);
         }
 
-        //GET : /Author/Show/{id}
+        //GET : /Teacher/Show/{id}
         public ActionResult Show(int id)
         {
             TeacherDataController controller = new TeacherDataController();
@@ -35,7 +35,7 @@ namespace SchoolProject.Controllers
             return View(NewTeacher);
         }
 
-        //GET : /Author/DeleteConfirm/{id}
+        //GET : /Teacher/DeleteConfirm/{id}
         public ActionResult DeleteConfirm(int id)
         {
             TeacherDataController controller = new TeacherDataController();
@@ -46,7 +46,7 @@ namespace SchoolProject.Controllers
         }
 
 
-        //POST : /Author/Delete/{id}
+        //POST : /Teacher/Delete/{id}
         [HttpPost]
         public ActionResult Delete(int id)
         {
@@ -55,20 +55,20 @@ namespace SchoolProject.Controllers
             return RedirectToAction("List");
         }
 
-        //GET : /Author/New
+        //GET : /Teacher/New
         public ActionResult New()
         {
             return View();
         }
 
-        //GET : /Author/Ajax_New
+        //GET : /Teacher/Ajax_New
         public ActionResult Ajax_New()
         {
             return View();
 
         }
 
-        //POST : /Author/Create
+        //POST : /Teacher/Create
         [HttpPost]
         public ActionResult Create(string TeacherFname, string TeacherLname, double salary, string employeenumber)
         {
@@ -92,6 +92,51 @@ namespace SchoolProject.Controllers
 
             return RedirectToAction("List");
         }
+        public ActionResult Update(int id)
+        {
+            TeacherDataController controller = new TeacherDataController();
+            Teacher SelectedTeacher = controller.FindTeacher(id);
 
+            return View(SelectedTeacher);
+        }
+
+        public ActionResult Ajax_Update(int id)
+        {
+            TeacherDataController controller = new TeacherDataController();
+            Teacher SelectedTeacher = controller.FindTeacher(id);
+
+            return View(SelectedTeacher);
+        }
+
+        /// <summary>
+        /// Receives a POST request containing information about an existing author in the system, with new values. Conveys this information to the API, and redirects to the "Author Show" page of our updated author.
+        /// </summary>
+        /// <param name="id">Id of the Teacher to update</param>
+        /// <param name="TeacherFname">The updated first name of the Teacher</param>
+        /// <param name="TeacherLname">The updated last name of the Teacher</param>
+        /// <param name="salary">The updated bio of the Teacher.</param>
+        /// <param name="employeenumber">The updated email of the Teacher.</param>
+        /// <returns>A dynamic webpage which provides the current information of the Teacher.</returns>
+        /// <example>
+        /// POST : /Teacher/Update/10
+        /// FORM DATA / POST DATA / REQUEST BODY 
+        /// {
+        ///	"TeacherFname":"Christine",
+        ///	"TeacherLname":"Bittle",
+        ///	"Salary":"1million",
+        ///	"employeenumber":"abcd1234"
+        /// }
+        /// </example>
+        [HttpPost]
+        public ActionResult Update(int id, Teacher Teacherinfo)
+        {
+
+
+
+            TeacherDataController controller = new TeacherDataController();
+            controller.UpdateTeacher(id, Teacherinfo);
+
+            return RedirectToAction("Show/" + id);
+        }
     }
 }

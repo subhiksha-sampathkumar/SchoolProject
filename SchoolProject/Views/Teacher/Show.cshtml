@@ -11,4 +11,9 @@
     <h2>@Model.TeacherFname @Model.TeacherLname</h2>
     <p style="font-style:italic;">Member Since @Model.Hiredate.ToString()</p>
     <p>@Model.employeenumber</p>
+
+    <a class="button button-danger" href="/TeacherData/DeleteConfirm/@Model.TeacherId">Delete</a>
+    <a class="button button-warning" href="/TeacherData/Update/@Model.TeacherId">Update</a>
+    <a class="button button-warning" href="/TeacherData/Ajax_Update/@Model.TeacherId">Update from Ajax</a>
+
 </div>
